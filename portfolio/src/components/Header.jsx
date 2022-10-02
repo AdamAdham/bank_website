@@ -1,8 +1,10 @@
 import React from 'react'
+import './Header.css'
 
-const Header = () => {
+const Header = (props) => {
+  const {openMenu} = props
   return (
-    <header>
+    <header id="hero" className={openMenu?"blur":""}>
         <h1 className="intro">Hi, I'm Adam</h1>
         <h2 className='proffesion'>Software Engineer</h2>
         <h3>Currently studying computer science and engineering

@@ -1,32 +1,29 @@
-import {React,useState} from 'react'
+import {React,useState,useEffect} from 'react'
+import {Link} from "react-scroll"
 import logo from '../assets/My Logo new.svg'
-import '../index.css'
+import './Navbar.css'
 
-function NavBar() {
-const [openMenu, setOpenMenu] = useState(false)
+function NavBar(props) {
+  const {openMenu,toggle} = props /*Const?*/
+  let [windowWidth,setWindowWidth] = useState(window.innerWidth)
 
-function toggleMenu(){
-  setOpenMenu((prev)=>!prev)
-}
+   useEffect(()=>{
+    function watchWidth(){
+      setWindowWidth(window.innerWidth)
+    }
+    window.addEventListener("resize",watchWidth)
+
+    return ()=>window.removeEventListener("resize",watchWidth)
+   },[])
 
   return (
     <nav>
-      <img src={logo} alt=""/>
-      <div className={
-        `right-column ${openMenu?"open-nav":""}`}
-        >
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Experience</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-
+      <img src={logo} alt="" className={openMenu?"blur":""}/>
+      
       <div 
       className={`menu ${openMenu&&"openmenu"}`}
       id="menu"
-      onClick={toggleMenu}
+      onClick={toggle}
       >
         <div>
             <span id="line1"></span>
@@ -34,6 +31,18 @@ function toggleMenu(){
             <span id="line3"></span>
         </div>
     </div>
+
+    <div className={
+        `right-column ${openMenu?"open-nav":""}`}
+        >
+        <ul>
+          <li><Link to="hero" spy={true} smooth={true} offset={-10} duration={500} onClick={(windowWidth<800)?toggle:()=>{}} >About</Link></li>
+          <li><Link to="hero" spy={true} smooth={true} offset={-10} duration={500} onClick={(windowWidth<800)?toggle:()=>{}}>Experience</Link></li>
+          <li><Link to="hero" spy={true} smooth={true} offset={-10} duration={500} onClick={(windowWidth<800)?toggle:()=>{}}>Projects</Link></li>
+          <li><Link to="hero" spy={true} smooth={true} offset={-10} duration={500} onClick={(windowWidth<800)?toggle:()=>{}}>Contact</Link></li>
+        </ul>
+      </div>
+
     </nav>
   )
 }

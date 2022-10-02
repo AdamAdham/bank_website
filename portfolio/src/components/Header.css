@@ -1,0 +1,46 @@
+ /* Header Component */
+ :root{
+  --primary-color:#64ddff;
+}
+ header{
+    font-family: Roboto;
+    margin: 50px 8vw 0 10vw;
+  }
+  
+  header h1{
+    font-size: 12vw;
+    font-weight: 900;
+  }
+  
+  header h2{
+    font-size: 8vw;
+    font-weight: 700;
+    color: #b6b6b6;
+    margin-top:10px;
+  }
+  
+  header h3{
+    color: #a3a3a3;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 25px;
+    max-width: 350px;
+  }
+  
+  @media screen and (min-width:700px){
+    /* Nav Component */
+      header{
+        margin-top: 50px;
+      }
+
+      header h1{
+        font-size: 85px;
+      }
+      
+      header h2{
+        font-size: 55px;
+      }
+      header h3{
+        max-width: 400px;
+      }
+  }

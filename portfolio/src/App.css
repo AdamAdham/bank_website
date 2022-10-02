@@ -8,6 +8,7 @@
     margin: 0;
     padding: 0;
     color: white;
+    font-family: Roboto;
   }
   
   body{
@@ -25,196 +26,15 @@
     list-style: none;
   }
 
-    /* Nav Component */
-
-  .none{
-    display: none;
-  }
-  
-  nav{
-    background-color: transparent;
-    display: flex;
-    height: 100px;
-    padding: 16px 40px;
-  }
-  
-  nav img{
-    height: 30px;
-    width: 30px;
-    margin: auto 0;
-    padding: 0;
-    -webkit-filter: invert(1); /* safari 6.0 - 9.0 */
-          filter: invert(1);
-  }
-  
-  nav .right-column{
-    display: fixed;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 0px;
-    background-color: var(--nav-color);
-    transition: width 1s;
-  }
-
-  nav .open-nav{
-    width: 300px;
-    transition: 1s;
-  }
-
-  nav ul{
-    display: block;
-    font-size: 1.2rem;
-    margin: 150px 0 0 15px;
-    padding: 0;
-  }
-
-  nav li{
-    display: flex;
-    margin-top: 40px;
-  }
-
-  nav a::after{
-    content: " ";
-    display: block;
-    width: 0%;
-    height: 2px;
-    background-color: var(--primary-color);
-  }
-
-  nav a:hover::after{
-    width: 100%;
+  .blur{
+    filter: blur(2px);
     transition: 0.5s;
   }
-  
-  nav a:hover{
-    color: var(--primary-color);
-    cursor: pointer;
-    transition: 0.3s;
+
+  .test{
+    margin: 100px;
   }
 
-  /* Hamburger Menu */
-  .menu{
-    position: absolute;
-    right: 30px;
-    top: 30px;
-    width:40px;
-    height:40px;
-    border-radius:5px;
-    cursor:pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+  .call-container{
+    margin: 30px 10vw;
   }
-  
-  .menu div{
-    width:30px;
-    height:30px;
-    position: relative;
-  }
-  
-  .menu span{
-    width:30px;
-    background:white;
-    height:3px;
-    border-radius:5px;
-    display:block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.5s, width 0.5s;
-  }
-
-  .menu #line1{
-    transform: translate(-50%,-10px);
-  }
-  
-  .menu #line3{
-    transform: translate(-50%,8px);
-  }
-  
-  .openmenu #line1{
-    background-color: white;
-      transform: translate(-50%,-50%) rotate(-45deg);
-  }
-  
-  .openmenu #line3{
-    background-color: white;
-    transform: translate(-50%,-50%) rotate(45deg);
-  }
-  
-  .openmenu #line2{
-    background-color: white;
-    width: 0;
-  }
-
-
-  /* Header Component */
-
-header{
-  font-family: Roboto;
-  margin: 80px 0 0 10vw;
-}
-
-header h1{
-  font-size: 3rem;
-  font-weight: 900;
-}
-
-header h2{
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #b6b6b6;
-  margin:0;
-}
-
-header h3{
-  color: #a3a3a3;
-  font-size: 1.2rem;
-  margin-top: 25px;
-  max-width: 75vw;
-}
-
-
-  
-@media screen and (min-width:800px){
-
-}
-
-@media screen and (min-width:800px){
-  /* Nav Component */
-
-    nav ul{
-        display: flex;
-        list-style: none;
-        margin: 0 0 0 auto;
-      }
-      
-      nav li{
-        font-size: 0.9rem;
-        align-items: center;
-        margin: 0 0 0 7vw;
-      }
-      nav a:hover{
-        color: var(--primary-color);
-        cursor: pointer;
-        transition: 0.3s;
-      }
-
-      nav .right-column{
-        position: static;
-        width: fit-content;
-        height: auto;
-        margin: 0 0 0 auto;
-        padding: 0;
-        display:flex;
-        background-color: transparent;
-    }
-
-    nav .menu{
-        display: none;
-    }
-}

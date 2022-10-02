@@ -1,18 +1,28 @@
 import {React,useState} from 'react'
-import reactLogo from './assets/react.svg'
-import './index.css'
-import NavBar from './components/NavBar'
+import Navbar from './components/Navbar'
 import Header from './components/Header'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'bootstrap'
+import CallToAction from './components/CallToAction'
+import SectionTitle from './components/SectionTitle'
+import { useLockedBody } from 'usehooks-ts'
 
 function App() {
-  const [lol, setlol] = useState("mohamed")
+  const [openMenu, setOpenMenu] = useState(false)
+   const [lockScroll,setLockScroll] = useLockedBody()
+
+  function toggleMenu(){
+    setLockScroll((prev)=>!prev)
+    setOpenMenu((prev)=>!prev)
+  }
+  
   return (
     <div className="App">
-      <NavBar/>
-      <Header/>
-      <CallToAction/>
+      <Navbar openMenu={openMenu} toggle={toggleMenu}/>
+      <Header openMenu={openMenu}/>
+      <CallToAction targetId="adam" prompt="Contact Me"/>
+      <SectionTitle/>
+      <h1 className="test" id="adam">adam</h1>
+      <h1 className="test" id="adham">adham</h1>
+      <h1 className="test" id="fayek">Fayek</h1>
     </div>
   )
 }
